@@ -1,30 +1,29 @@
 {
-  "expo": {
-    "name": "doom",
-    "slug": "doom",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
-  }
+	"expo": {
+		"name": "doom-scheme",
+		"slug": "doom-scheme",
+		"version": "1.0.0",
+		"orientation": "default",
+		"icon": "./assets/images/icon.png",
+		"userInterfaceStyle": "automatic",
+		"splash": {
+			"image": "./assets/images/splash.png",
+			"resizeMode": "contain"
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/images/adaptive-icon.png"
+			}
+		},
+		"extra": {
+			"eas": {
+				"projectId": "104359bc-0c68-49e2-adcd-0d3d6b97e129"
+			}
+		},
+		"owner": "jake-hatfield"
+	}
 }
