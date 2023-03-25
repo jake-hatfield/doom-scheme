@@ -40,10 +40,11 @@ const Input: React.FC<Props> = ({
 			)}
 
 			<TextInput
+				multiline
+				onChangeText={setValue}
 				style={inputStyles}
 				{...textInputConfig}
 				value={value}
-				onChangeText={setValue}
 			/>
 		</View>
 	);

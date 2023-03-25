@@ -1,5 +1,4 @@
 // packages
-// import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
