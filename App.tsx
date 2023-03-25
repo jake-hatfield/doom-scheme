@@ -31,7 +31,9 @@ const navigationTheme = {
 const App: React.FC = () => {
 	// fonts
 	const [fontsLoaded] = useFonts({
-		'space-grotesk': require('@assets/fonts/SpaceGrotesk-Regular.ttf'),
+		montserrat: require('@assets/fonts/Montserrat-Regular.ttf'),
+		'montserrat-black': require('@assets/fonts/Montserrat-Black.ttf'),
+		'montserrat-bold': require('@assets/fonts/Montserrat-Bold.ttf'),
 	});
 
 	// after the custom fonts have loaded, we can hide the splash screen and display the app screen.

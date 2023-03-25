@@ -96,16 +96,16 @@ export const formatIsoToText = (isoTime: string, format = 'LLL dd, yyyy') => {
 	return DateTime.fromISO(isoTime).toFormat(format);
 };
 
-export const setWelcomeMessage = () => {
-	let welcomeMessage = 'Hello';
+export const setWelcomeMessage = (firstName: string) => {
+	let welcomeMessage = `Hello, ${firstName}`;
 	const currentHour = getCurrentTime().hour;
 
 	if (currentHour < 11) {
-		welcomeMessage = 'Good morning ☀️';
+		welcomeMessage = `Good morning, ${firstName}`;
 	} else if (currentHour < 18) {
-		welcomeMessage = 'Good afternoon 🌤️';
+		welcomeMessage = `Good afternoon, ${firstName}`;
 	} else {
-		welcomeMessage = 'Good evening 🌙';
+		welcomeMessage = `Good evening, ${firstName}`;
 	}
 
 	return welcomeMessage;

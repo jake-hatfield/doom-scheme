@@ -4,15 +4,15 @@ import { createTheme } from '@shopify/restyle';
 const palette = {
 	// neutral
 	netural50: 'rgb(250 250 250)',
-	neutral100: 'rgb(245 245 245)',
-	neutral200: 'rgb(229 229 229)',
-	neutral300: 'rgb(212 212 212)',
-	neutral400: 'rgb(163 163 163)',
-	neutral500: 'rgb(115 115 115)',
-	neutral600: 'rgb(82 82 82)',
-	neutral700: 'rgb(64 64 64)',
-	neutral800: 'rgb(38 38 38)',
-	neutral900: 'rgb(23 23 23)',
+	neutral100: 'rgb(244 244 245)',
+	neutral200: 'rgb(228 228 231)',
+	neutral300: 'rgb(212 212 216)',
+	neutral400: 'rgb(161 161 170)',
+	neutral500: 'rgb(113 113 122)',
+	neutral600: 'rgb(82 82 91)',
+	neutral700: 'rgb(63 63 70)',
+	neutral800: 'rgb(39 39 42)',
+	neutral900: 'rgb(24 24 27)',
 	// primary
 	primary50: 'rgb(239 246 255)',
 	primary100: 'rgb(219 234 254)',
@@ -52,37 +52,47 @@ const palette = {
 };
 
 const spacing = {
-	xs: 6,
-	s: 8,
-	m: 12,
-	l: 20,
-	xl: 32,
+	xs: 4,
+	s: 6,
+	m: 8,
+	l: 12,
+	xl: 20,
 	xxl: 52,
+	xxxl: 72,
 };
 
 const theme = createTheme({
 	borderRadii: {
-		borderRadius: spacing.s,
+		borderRadiusPrimary: spacing.m,
+		borderRadiusSecondary: spacing.l,
+		borderRadiusTertiary: spacing.xl,
+		borderRadiusRound: 500,
 	},
 	breakpoints: {},
 	colors: {
-		backgroundPrimary: palette.neutral900,
-		backgroundSecondary: palette.neutral700,
+		backgroundPrimary: palette.black,
+		backgroundSecondary: palette.neutral900,
+		backgroundTertiary: palette.neutral800,
 		buttonActive: palette.primary400,
 		foregroundPrimary: palette.white,
-		foregroundSecondary: palette.neutral400,
+		foregroundSecondary: palette.neutral200,
+		foregroundTertiary: palette.neutral400,
 	},
 	spacing,
 	textVariants: {
+		body: {
+			fontFamily: 'montserrat',
+			color: 'foregroundPrimary',
+		},
 		header: {
-			fontFamily: 'space-grotesk',
-			fontSize: 28,
+			fontFamily: 'montserrat-black',
+			fontSize: 20,
 			lineHeight: 36,
 			color: 'foregroundPrimary',
 		},
-		body: {
-			fontFamily: 'space-grotesk',
-			color: 'foregroundPrimary',
+		subheader: {
+			fontFamily: 'montserrat-bold',
+			color: 'foregroundTertiary',
 		},
 	},
 });

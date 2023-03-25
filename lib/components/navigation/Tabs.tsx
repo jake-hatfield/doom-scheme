@@ -2,18 +2,14 @@
 // import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { getHeaderTitle } from '@react-navigation/elements';
 
 // assets
 import theme from '@assets/theme';
 
 // screens
+import Compose from '@screens/Compose';
 import Discover from '@screens/Discover';
-import Home from '@screens/Home';
-import Library from 'lib/screens/Library';
-
-// lib
-import { setWelcomeMessage } from '@utils/dateTime';
+import Profile from '@screens/Profile';
 
 // navigation
 const Tab = createBottomTabNavigator();
@@ -23,11 +19,11 @@ const Tabs = () => {
 		<Tab.Navigator
 			id='a27d92b6-ca78-11ed-afa1-0242ac120002'
 			screenOptions={{
-				// tabBarBackground: () => <BlurView intensity={100} tint='default' />,
 				tabBarActiveTintColor: theme.colors.buttonActive,
 				tabBarItemStyle: {
 					// paddingVertical: theme.spacing.s,
 				},
+				tabBarShowLabel: false,
 				tabBarStyle: {
 					paddingVertical: theme.spacing.s,
 					backgroundColor: theme.colors.backgroundPrimary,
@@ -36,12 +32,12 @@ const Tabs = () => {
 			}}
 		>
 			<Tab.Screen
-				component={Home}
-				name='Home'
+				component={Compose}
+				name='Compose'
 				options={{
 					headerShown: false,
 					tabBarIcon: ({ color, size }) => (
-						<Ionicons color={color} name='home-outline' size={size} />
+						<Ionicons color={color} name='create-outline' size={size} />
 					),
 				}}
 			/>
@@ -56,12 +52,12 @@ const Tabs = () => {
 				}}
 			/>
 			<Tab.Screen
-				component={Library}
-				name='Library'
+				component={Profile}
+				name='Profile'
 				options={{
 					headerShown: false,
 					tabBarIcon: ({ color, size }) => (
-						<Ionicons color={color} name='albums-outline' size={size} />
+						<Ionicons color={color} name='person-outline' size={size} />
 					),
 				}}
 			/>
