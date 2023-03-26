@@ -1,5 +1,5 @@
 // packages
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 
 // assets
 import theme from '@assets/theme';
@@ -12,6 +12,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }) => {
 	return (
 		<SafeAreaView style={styles.rootContainer}>
+			<StatusBar />
 			<View style={styles.innerContainer}>{children}</View>
 		</SafeAreaView>
 	);

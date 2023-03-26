@@ -4,10 +4,10 @@
 		"slug": "doom-scheme",
 		"version": "1.0.0",
 		"orientation": "default",
-		"icon": "./assets/images/icon.png",
+		"icon": "./src/assets/images/icon.png",
 		"userInterfaceStyle": "automatic",
 		"splash": {
-			"image": "./assets/images/splash.png",
+			"image": "./src/assets/images/splash.png",
 			"resizeMode": "contain"
 		},
 		"assetBundlePatterns": ["**/*"],
@@ -16,7 +16,7 @@
 		},
 		"android": {
 			"adaptiveIcon": {
-				"foregroundImage": "./assets/images/adaptive-icon.png"
+				"foregroundImage": "./src/assets/images/adaptive-icon.png"
 			}
 		},
 		"extra": {

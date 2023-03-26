@@ -2,15 +2,19 @@
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from '@shopify/restyle';
 
 // lib
 import theme from '@assets/theme';
 
+// context
+import { UserProvider } from './src/context/User';
+import { FirebaseProvider } from './src/context/Firebase';
+
 // navigation
-import Tabs from '@components/navigation/Tabs';
+import AppStack from '@stacks/App';
 
 // prevents splash screen from auto hiding while the fonts are loaded
 SplashScreen.preventAutoHideAsync();
@@ -48,18 +52,17 @@ const App: React.FC = () => {
 	}
 
 	return (
-		<>
-			<StatusBar />
-			<View onLayout={onLayoutRootView} style={styles.layoutContainer}>
-				<ThemeProvider theme={theme}>
-					<NavigationContainer theme={navigationTheme}>
-						<View style={styles.layoutContainer}>
-							<Tabs />
-						</View>
-					</NavigationContainer>
-				</ThemeProvider>
-			</View>
-		</>
+		<View onLayout={onLayoutRootView} style={styles.layoutContainer}>
+			<FirebaseProvider>
+				<UserProvider>
+					<ThemeProvider theme={theme}>
+						<NavigationContainer theme={navigationTheme}>
+							<AppStack />
+						</NavigationContainer>
+					</ThemeProvider>
+				</UserProvider>
+			</FirebaseProvider>
+		</View>
 	);
 };
 

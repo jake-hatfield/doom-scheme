@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 // packages
 import { ScrollView, StyleSheet } from 'react-native';
-import Markdown from '@ronradtke/react-native-markdown-display';
 
 // components
 import Box from '@components/utilities/Box';
@@ -14,7 +13,7 @@ import Layout from '@components/layout/Layout';
 import Text from '@components/utilities/Text';
 
 // lib
-import { setWelcomeMessage } from 'lib/utilities/dateTime';
+import { setWelcomeMessage } from '@lib/utilities/dateTime';
 
 // assets
 import theme from '@assets/theme';
@@ -23,13 +22,6 @@ const welcomeMessage = setWelcomeMessage('Jake');
 
 // types
 interface Props {}
-
-const copy = `# h1 Heading 8-)
-
-**This is some bold text!**
-
-This is normal text
-`;
 
 const Home: React.FC<Props> = () => {
 	// state
@@ -88,15 +80,6 @@ const Home: React.FC<Props> = () => {
 							contentInsetAdjustmentBehavior='automatic'
 							style={{ height: '100%' }}
 						>
-							<Markdown
-								style={{
-									body: { color: 'red', fontSize: 10 },
-									heading1: { color: 'purple' },
-									code_block: { color: 'black', fontSize: 14 },
-								}}
-							>
-								{inputValue}
-							</Markdown>
 							<Input setValue={setInputValue} value={inputValue} />
 						</ScrollView>
 					</Box>

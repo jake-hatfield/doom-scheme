@@ -5,11 +5,14 @@
 		"paths": {
 			"*": ["*"],
 			"tests": ["tests/*"],
-			"@assets/*": ["assets/*"],
-			"@components/*": ["lib/components/*"],
+			"@assets/*": ["src/assets/*"],
+			"@components/*": ["src/lib/components/*"],
+			"@context/*": ["src/context/*"],
 			"@env": [".env"],
-			"@screens/*": ["lib/screens/*"],
-			"@utils/*": ["lib/utilities/*"]
+			"@lib/*": ["src/lib/*"],
+			"@screens/*": ["src/screens/*"],
+			"@stacks/*": ["src/stacks/*"],
+			"@utils/*": ["src/lib/utilities/*"]
 		}
 	}
 }

@@ -6,16 +6,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import theme from '@assets/theme';
 
 // screens
-import Compose from '@screens/Compose';
-import Discover from '@screens/Discover';
-import Profile from '@screens/Profile';
+import Compose from 'src/screens/Compose';
+import Discover from 'src/screens/Discover';
+import Profile from 'src/screens/Profile';
 
 // navigation
-const Tab = createBottomTabNavigator();
+const MainStack = createBottomTabNavigator();
 
-const Tabs = () => {
+const Main = () => {
 	return (
-		<Tab.Navigator
+		<MainStack.Navigator
 			id='a27d92b6-ca78-11ed-afa1-0242ac120002'
 			screenOptions={{
 				tabBarActiveTintColor: theme.colors.buttonActive,
@@ -30,7 +30,7 @@ const Tabs = () => {
 				tabBarInactiveTintColor: theme.colors.foregroundSecondary,
 			}}
 		>
-			<Tab.Screen
+			<MainStack.Screen
 				component={Compose}
 				name='Compose'
 				options={{
@@ -40,7 +40,7 @@ const Tabs = () => {
 					),
 				}}
 			/>
-			<Tab.Screen
+			<MainStack.Screen
 				component={Discover}
 				name='Discover'
 				options={{
@@ -50,7 +50,7 @@ const Tabs = () => {
 					),
 				}}
 			/>
-			<Tab.Screen
+			<MainStack.Screen
 				component={Profile}
 				name='Profile'
 				options={{
@@ -60,8 +60,8 @@ const Tabs = () => {
 					),
 				}}
 			/>
-		</Tab.Navigator>
+		</MainStack.Navigator>
 	);
 };
 
-export default Tabs;
+export default Main;
