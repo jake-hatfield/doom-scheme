@@ -31,13 +31,14 @@ export default Button;
 const styles = StyleSheet.create({
 	container: {
 		paddingHorizontal: theme.spacing.l,
-		paddingVertical: theme.spacing.m,
-		backgroundColor: theme.colors.backgroundTertiary,
-		borderRadius: theme.borderRadii.borderRadiusSecondary,
+		paddingVertical: theme.spacing.l,
+		backgroundColor: theme.colors.buttonActive,
+		borderRadius: theme.borderRadii.borderRadiusPrimary,
 	},
 	text: {
-		fontSize: 12,
+		fontSize: 14,
 		fontFamily: 'montserrat-bold',
 		color: theme.colors.foregroundSecondary,
+		textAlign: 'center',
 	},
 });

@@ -19,7 +19,7 @@ const ButtonIcon: React.FC<Props> = ({ icon, onPress, style }) => {
 	return (
 		<Pressable onPress={onPress}>
 			<View style={[styles.container, style]}>
-				<Ionicons name={icon} />
+				<Ionicons name={icon} size={24} style={styles.icon} />
 			</View>
 		</Pressable>
 	);
@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
 		paddingVertical: theme.spacing.s,
 		backgroundColor: theme.colors.backgroundSecondary,
 		borderRadius: theme.borderRadii.borderRadiusSecondary,
+	},
+	icon: {
+		color: theme.colors.foregroundPrimary,
 	},
 	text: {
 		fontSize: 12,

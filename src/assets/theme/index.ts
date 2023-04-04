@@ -63,9 +63,9 @@ const spacing = {
 
 const theme = createTheme({
 	borderRadii: {
-		borderRadiusPrimary: spacing.m,
-		borderRadiusSecondary: spacing.l,
-		borderRadiusTertiary: spacing.xl,
+		borderRadiusPrimary: spacing.xs,
+		borderRadiusSecondary: spacing.s,
+		borderRadiusTertiary: spacing.m,
 		borderRadiusRound: 500,
 	},
 	breakpoints: {},

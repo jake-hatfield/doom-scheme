@@ -10,8 +10,8 @@ import { ThemeProvider } from '@shopify/restyle';
 import theme from '@assets/theme';
 
 // context
-import { UserProvider } from './src/context/User';
-import { FirebaseProvider } from './src/context/Firebase';
+import { UserProvider } from '@context/User';
+import { FirebaseProvider } from '@context/Firebase';
 
 // navigation
 import AppStack from '@stacks/App';

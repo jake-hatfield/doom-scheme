@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 
 // packages
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // context
 import { UserContext } from '@context/User';
@@ -16,7 +16,7 @@ import Loading from '@screens/Loading';
 
 const App = () => {
 	// stack
-	const AppStack = createStackNavigator();
+	const AppStack = createNativeStackNavigator();
 
 	// context
 	const [user] = useContext(UserContext);

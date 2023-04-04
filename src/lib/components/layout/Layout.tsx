@@ -7,11 +7,12 @@ import theme from '@assets/theme';
 // types
 interface Props {
 	children: React.ReactNode;
+	style?: { [key: string]: string | number };
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<Props> = ({ children, style }) => {
 	return (
-		<SafeAreaView style={styles.rootContainer}>
+		<SafeAreaView style={[styles.innerContainer, style]}>
 			<StatusBar />
 			<View style={styles.innerContainer}>{children}</View>
 		</SafeAreaView>
@@ -23,8 +24,8 @@ export default Layout;
 const styles = StyleSheet.create({
 	innerContainer: {
 		flex: 1,
-		paddingHorizontal: theme.spacing.l,
-		paddingVertical: theme.spacing.l,
+		paddingHorizontal: theme.spacing.xs,
+		paddingVertical: theme.spacing.xs,
 	},
 	rootContainer: {
 		flex: 1,

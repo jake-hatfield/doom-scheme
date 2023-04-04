@@ -1,12 +1,12 @@
 // packages
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // screens
 import SignIn from '@screens/SignIn';
 import SignUp from '@screens/SignUp';
 
 const Auth = () => {
-	const AuthStack = createStackNavigator();
+	const AuthStack = createNativeStackNavigator();
 	return (
 		<AuthStack.Navigator
 			screenOptions={{
