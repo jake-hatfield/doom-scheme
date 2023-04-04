@@ -11,6 +11,9 @@ import { UserContext } from '@context/User';
 import Auth from '@stacks/Auth';
 import Main from '@stacks/Main';
 
+// screens
+import Loading from '@screens/Loading';
+
 const App = () => {
 	// stack
 	const AppStack = createStackNavigator();
@@ -24,10 +27,12 @@ const App = () => {
 				headerShown: false,
 			}}
 		>
-			{!user.isLoggedIn ? (
-				<AppStack.Screen component={Auth} name='Auth' />
-			) : (
+			{user.isLoggedIn === null ? (
+				<AppStack.Screen component={Loading} name='Loading' />
+			) : user.isLoggedIn ? (
 				<AppStack.Screen component={Main} name='Main' />
+			) : (
+				<AppStack.Screen component={Auth} name='Auth' />
 			)}
 		</AppStack.Navigator>
 	);

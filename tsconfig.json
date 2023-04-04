@@ -12,6 +12,7 @@
 			"@lib/*": ["src/lib/*"],
 			"@screens/*": ["src/screens/*"],
 			"@stacks/*": ["src/stacks/*"],
+			"$types/*": ["src/types/*"],
 			"@utils/*": ["src/lib/utilities/*"]
 		}
 	}

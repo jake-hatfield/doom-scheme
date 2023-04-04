@@ -1,6 +1,14 @@
-import React, { createContext, useState } from 'react';
+import React, {
+	createContext,
+	Dispatch,
+	SetStateAction,
+	useState,
+} from 'react';
 
-const UserContext = createContext([{}, () => {}]);
+const UserContext = createContext<[User, Dispatch<SetStateAction<User>>]>([
+	{ email: '', id: '', isLoggedIn: null, username: '' },
+	() => {},
+]);
 
 // types
 interface Props {
@@ -8,12 +16,7 @@ interface Props {
 }
 
 const UserProvider: React.FC<Props> = ({ children }) => {
-	const [state, setState] = useState<{
-		email: string;
-		id: string;
-		isLoggedIn: boolean | null;
-		username: string;
-	}>({
+	const [state, setState] = useState<User>({
 		email: '',
 		id: '',
 		isLoggedIn: null,
