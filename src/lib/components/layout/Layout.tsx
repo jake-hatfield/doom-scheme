@@ -24,8 +24,8 @@ export default Layout;
 const styles = StyleSheet.create({
 	innerContainer: {
 		flex: 1,
-		paddingHorizontal: theme.spacing.xs,
-		paddingVertical: theme.spacing.xs,
+		paddingHorizontal: theme.spacing.s,
+		paddingVertical: theme.spacing.s,
 	},
 	rootContainer: {
 		flex: 1,

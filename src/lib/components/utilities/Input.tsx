@@ -32,7 +32,7 @@ const Input: React.FC<Props> = ({
 	// }
 
 	return (
-		<View style={[styles.inputContainer, style]}>
+		<View style={[style]}>
 			{label && (
 				<Text style={[styles.label, invalid && styles.invalidLabel]}>
 					{label}

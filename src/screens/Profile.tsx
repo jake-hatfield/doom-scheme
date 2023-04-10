@@ -17,6 +17,7 @@ import Box from '@components/utilities/Box';
 import Button from '@components/utilities/Button';
 import ButtonIcon from '@components/utilities/ButtonIcon';
 import Layout from '@components/layout/Layout';
+import MultiTabNavigation from '@components/layout/MultiTabNavigation';
 import Text from '@components/utilities/Text';
 
 // assets
@@ -30,7 +31,9 @@ interface Props {
 
 const Profile: React.FC<Props> = ({ navigation }) => {
 	// state
-	const [currentView, setCurrentView] = useState<'work' | 'likes'>('work');
+	const [currentView, setCurrentView] = useState<
+		'work' | 'likes' | 'inspiration'
+	>('work');
 
 	return (
 		<>
@@ -41,13 +44,6 @@ const Profile: React.FC<Props> = ({ navigation }) => {
 						uri: 'https://jake-hatfield.com/images/items/changelogs/v0.0.1.jpg',
 					}}
 					style={styles.backgroundImage}
-				/>
-				{/* change this to "Settings screen" */}
-				<ButtonIcon
-					icon='settings-outline'
-					onPress={() => navigation.navigate('Discover')}
-					style={styles.buttonIcon}
-					title='Settings'
 				/>
 			</View>
 			<Layout>
@@ -61,10 +57,19 @@ const Profile: React.FC<Props> = ({ navigation }) => {
 							}}
 							style={styles.avatar}
 						/>
-						<Button
-							onPress={() => Alert.alert('Edit profile...')}
-							title='Edit'
-						/>
+						<Box style={styles.detailsContainer}>
+							{/* change this to "Settings screen" */}
+							<ButtonIcon
+								icon='settings-outline'
+								onPress={() => navigation.navigate('Discover')}
+								title='Settings'
+							/>
+							<Button
+								onPress={() => Alert.alert('Edit profile...')}
+								style={styles.button}
+								title='Edit'
+							/>
+						</Box>
 					</Box>
 					<Box style={styles.user}>
 						<Text variant='header'>Jake Hatfield</Text>
@@ -123,23 +128,25 @@ const Profile: React.FC<Props> = ({ navigation }) => {
 							</Text>
 						</Box>
 					</Box>
-					<Box style={styles.itemsContainer}>
-						<Box style={styles.detailsContainer}>
-							<Button
-								onPress={() => setCurrentView('work')}
-								style={{ backgroundColor: theme.colors.backgroundTertiary }}
-								title='Work'
-							/>
-							<Button
-								onPress={() => setCurrentView('likes')}
-								style={{
-									backgroundColor: theme.colors.backgroundTertiary,
-									marginLeft: theme.spacing.l,
-								}}
-								title='Likes'
-							/>
-						</Box>
-					</Box>
+					<MultiTabNavigation
+						items={[
+							{
+								id: '0fd137cb-9531-4deb-b392-d07d3c3be657',
+								title: 'Work',
+								onPress: () => setCurrentView('work'),
+							},
+							{
+								id: '70a9c390-4c74-47b6-a8d0-7f315c6917e8',
+								title: 'Likes',
+								onPress: () => setCurrentView('likes'),
+							},
+							{
+								id: '43ef38b2-98ca-4be9-8214-be015143410c',
+								title: 'Inspiration',
+								onPress: () => setCurrentView('inspiration'),
+							},
+						]}
+					/>
 					{currentView === 'work' ? (
 						<>
 							<Box style={styles.itemContainer}>
@@ -152,7 +159,7 @@ const Profile: React.FC<Props> = ({ navigation }) => {
 								<Text style={styles.itemText}>Work 3</Text>
 							</Box>
 						</>
-					) : (
+					) : currentView === 'likes' ? (
 						<>
 							<Box style={styles.itemContainer}>
 								<Text style={styles.itemText}>Work 4</Text>
@@ -162,6 +169,18 @@ const Profile: React.FC<Props> = ({ navigation }) => {
 							</Box>
 							<Box style={styles.itemContainer}>
 								<Text style={styles.itemText}>Work 6</Text>
+							</Box>
+						</>
+					) : (
+						<>
+							<Box style={styles.itemContainer}>
+								<Text style={styles.itemText}>Work 7</Text>
+							</Box>
+							<Box style={styles.itemContainer}>
+								<Text style={styles.itemText}>Work 8</Text>
+							</Box>
+							<Box style={styles.itemContainer}>
+								<Text style={styles.itemText}>Work 9</Text>
 							</Box>
 						</>
 					)}
@@ -176,7 +195,7 @@ export default Profile;
 const styles = StyleSheet.create({
 	avatar: {
 		borderRadius: theme.borderRadii.borderRadiusRound,
-		borderWidth: 4,
+		borderWidth: 2,
 		borderColor: theme.colors.backgroundSecondary,
 	},
 	avatarContainer: {
@@ -186,15 +205,10 @@ const styles = StyleSheet.create({
 		height: 124,
 	},
 	backgroundImageContainer: {
-		borderBottomWidth: 2,
+		borderBottomWidth: 1,
 		borderColor: theme.colors.backgroundSecondary,
-		position: 'relative',
 	},
-	buttonIcon: {
-		position: 'absolute',
-		right: theme.spacing.xs,
-		bottom: theme.spacing.xl,
-	},
+	button: { marginLeft: theme.spacing.s },
 	headerContainer: {
 		alignItems: 'flex-end',
 		flexDirection: 'row',
@@ -215,6 +229,7 @@ const styles = StyleSheet.create({
 	},
 	itemsContainer: { marginTop: theme.spacing.xl },
 	detailsContainer: {
+		alignItems: 'flex-end',
 		flexDirection: 'row',
 		marginTop: theme.spacing.m,
 	},

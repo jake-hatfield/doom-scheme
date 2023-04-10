@@ -1,8 +1,20 @@
 // react
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import {
+	Dimensions,
+	KeyboardAvoidingView,
+	Platform,
+	ScrollView,
+	StyleSheet,
+} from 'react-native';
 
 // packages
-import { ScrollView, StyleSheet } from 'react-native';
+import {
+	actions,
+	RichEditor,
+	RichToolbar,
+} from 'react-native-pell-rich-editor';
+import { WebView } from 'react-native-webview';
 
 // components
 import Box from '@components/utilities/Box';
@@ -13,7 +25,7 @@ import Layout from '@components/layout/Layout';
 import Text from '@components/utilities/Text';
 
 // lib
-import { setWelcomeMessage } from '@lib/utilities/dateTime';
+import { setWelcomeMessage } from '@utils/dateTime';
 
 // assets
 import theme from '@assets/theme';
@@ -26,11 +38,28 @@ interface Props {}
 const Home: React.FC<Props> = () => {
 	// state
 	const [screen, setScreen] = useState<'dictionary' | 'thesaurus' | null>(null);
-	const [inputValue, setInputValue] = useState('');
+	const [composition, setComposition] = useState('');
+
+	// ref
+	const richText = useRef();
 
 	return (
 		<Layout>
 			<Text variant='header'>{welcomeMessage}</Text>
+			<RichToolbar
+				actions={[
+					actions.setBold,
+					actions.setItalic,
+					actions.insertBulletsList,
+					actions.insertOrderedList,
+					actions.keyboard,
+				]}
+				editor={richText}
+				selectedIconTint={theme.colors.buttonActive}
+				style={{
+					backgroundColor: theme.colors.backgroundPrimary,
+				}}
+			/>
 			<Box style={styles.headerButtonsContainer}>
 				{!screen ? (
 					<ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -76,11 +105,27 @@ const Home: React.FC<Props> = () => {
 			<Box style={styles.mainContentContainer}>
 				{!screen ? (
 					<Box>
-						<ScrollView
-							contentInsetAdjustmentBehavior='automatic'
-							style={{ height: '100%' }}
-						>
-							<Input setValue={setInputValue} value={inputValue} />
+						<ScrollView keyboardDismissMode='on-drag'>
+							<KeyboardAvoidingView
+								behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+								style={{ flex: 1 }}
+								keyboardVerticalOffset={250}
+							>
+								<RichEditor
+									editorStyle={{
+										backgroundColor: theme.colors.backgroundSecondary,
+										caretColor: theme.colors.buttonActive,
+										color: theme.colors.foregroundPrimary,
+										placeholderColor: theme.colors.foregroundTertiary,
+									}}
+									onChange={(text) => {
+										setComposition(text);
+										console.log('text:', composition);
+									}}
+									placeholder='Hello there'
+									ref={richText}
+								/>
+							</KeyboardAvoidingView>
 						</ScrollView>
 					</Box>
 				) : screen === 'dictionary' ? (

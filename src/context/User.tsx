@@ -1,9 +1,8 @@
-import React, {
-	createContext,
-	Dispatch,
-	SetStateAction,
-	useState,
-} from 'react';
+// react
+import React, { createContext, useState } from 'react';
+
+// types
+import type { Dispatch, SetStateAction } from 'react';
 
 const UserContext = createContext<[User, Dispatch<SetStateAction<User>>]>([
 	{ email: '', id: '', isLoggedIn: null, username: '' },
